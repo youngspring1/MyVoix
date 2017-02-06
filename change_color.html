@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>音声で色変更</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="myvoix2.0.js" ></script>
+		<script type="text/javascript">
+		window.onload=function(){
+			var _myVoix = new MyVoix(undefined,undefined,true),
+				_title=document.getElementsByTagName('H1')[0],
+				_colors=['red','black','blue','green','yellow','voilet'];
+			_myVoix.start();
+			for(var i=0,l=_colors.length;i<l;i++){
+				(function(i){
+					_myVoix.bind(_colors[i],function(){
+						_title.style.color=_colors[i];
+					});
+				})(i);
+			}
+		};
+		</script>
+	</head>
+	<body>	
+		<h1>Hello My Voix</h1>
+	</body>
+</html>

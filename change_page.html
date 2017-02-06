@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>音声で画面遷移</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="myvoix2.0.js" ></script>
+		<script type="text/javascript">
+		window.onload=function(){
+			var _myVoix = new MyVoix(undefined,undefined,true),
+				_title=document.getElementsByTagName('H1')[0],
+				_pages=['page one','page 2','page 3'];
+			_myVoix.start();
+			for(var i=0,l=_pages.length;i<l;i++){
+				(function(i){
+					_myVoix.bind(_pages[i],function(){
+						//_title.style.color=_pages[i];
+						window.location.href= _pages[i] + ".html";
+					});
+				})(i);
+			}
+		};
+		</script>
+	</head>
+	<body>	
+		<h1>Change Page</h1>
+	</body>
+</html>
